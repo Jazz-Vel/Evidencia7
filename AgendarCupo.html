@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Cupo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.css">
+    <style>
+        /* Variables CSS para facilitar la personalización de colores y estilos */
+        :root {
+            --primary-color:  #060606; /* Negro para acción principal (agendar) */
+            --secondary-color: #6c757d; /* Gris para texto secundario */
+            --light-bg: #f8f9fa; /* Fondo claro general */
+            --dark-text: #343a40; /* Color de texto oscuro */
+            --border-radius: 8px; /* Radio de borde para elementos */
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra para contenedores */
+            --input-border: #ced4da; /* Color del borde de los inputs */
+            --input-focus-border: var(--primary-color); /* Color del borde de los inputs al hacer focus */
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-image: linear-gradient(to top,  #0c1db8fb  100%);
+            color: var(--dark-text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Asegura que ocupe al menos toda la altura de la ventana */
+        }
+
+        .booking-container {
+            background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            width: 70%;
+            max-width: 25%; /* Ancho máximo del formulario */
+        }
+
+        .booking-container h2 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 400;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: calc(100% - 20px); /* Ancho completo menos padding */
+            padding: 12px 10px;
+            border: 1px solid var(--input-border);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--input-focus-border);
+            outline: none; /* Quita el contorno por defecto del navegador */
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Sombra suave al hacer focus */
+        }
+
+        .form-group textarea {
+            resize: vertical; /* Permite redimensionar verticalmente el área de texto */
+        }
+
+        .btn-submit {
+            display: block;
+            width: 90%;
+            padding: 5%;
+            background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            
+           
+        }
+
+        .btn-submit:hover {
+            background-color: #1e7e34; /* Tono más oscuro al pasar el ratón */
+            transform: translateY(-2px); /* Pequeño efecto de elevación */
+        }
+
+        /* Estilos específicos para Flatpickr (selector de fecha) */
+        .flatpickr-wrapper {
+            width: 100%;
+        }
+
+        .flatpickr-input {
+            width: calc(100% - 20px);
+            padding: 12px 10px;
+            border: 1px solid var(--input-border);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            box-sizing: border-box;
+            background-color: white; /* Asegura que el fondo sea blanco */
+        }
+
+        .flatpickr-input:focus {
+            border-color: var(--input-focus-border);
+            outline: none;
+            box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+        }
+
+        /* Ajustes responsivos para pantallas más pequeñas */
+        @media (max-width: 768px) {
+            .booking-container {
+                padding: 30px;
+                margin: 20px; /* Margen en los laterales para pantallas pequeñas */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="booking-container">
+        <h2>Agendar Cupo</h2>
+        <form action="#" method="POST">
+            <div class="form-group">
+                <label for="nombre">Nombre Completo</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Correo Electrónico</label>
+                <input type="email" id="email" name="email" placeholder="tu@ejemplo.com" required>
+            </div>
+            <div class="form-group">
+                <label for="telefono">Número de Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="Tu número de contacto">
+            </div>
+            <div class="form-group">
+                <label for="servicio">Tipo de Vehiculo</label>
+                <select id="servicio" name="servicio" required>
+                    <option value="" disabled selected>Selecciona un Vehiculo</option>
+                    <option value="Carro">Carro</option>
+                    <option value="Moto">Moto</option>
+                    <option value="Bicicleta">Bicicleta</option>
+                    
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="fecha">Fecha del Servicio</label>
+                <input type="text" id="fecha" name="fecha" class="flatpickr" placeholder="Selecciona una fecha" required>
+            </div>
+            <div class="form-group">
+                <label for="hora">Hora Inicio</label>
+                <select id="hora" name="hora" required>
+                    <option value="" disabled selected>Selecciona una hora</option>
+                    <option value="7:00">7:00 AM</option>
+                    <option value="8:00">8:00 AM</option>
+                    <option value="9:00">9:00 AM</option>
+                    <option value="10:00">10:00 AM</option>
+                    <option value="11:00">11:00 AM</option>
+                    <option value="12:00">12:00 PM</option>
+                    <option value="14:00">2:00 PM</option>
+                    <option value="15:00">3:00 PM</option>
+                    <option value="16:00">4:00 PM</option>
+                    <option value="17:00">5:00 PM</option>
+                </select>
+            </div>
+
+             <div class="form-group">
+                <label for="hora">Hora Final</label>
+                <select id="hora" name="hora" required>
+                    <option value="" disabled selected>Selecciona una hora</option>
+                    <option value="8:00">8:00 AM</option>
+                    <option value="9:00">9:00 AM</option>
+                    <option value="10:00">10:00 AM</option>
+                    <option value="11:00">11:00 AM</option>
+                    <option value="12:00">12:00 PM</option>
+                    <option value="14:00">2:00 PM</option>
+                    <option value="15:00">3:00 PM</option>
+                    <option value="16:00">4:00 PM</option>
+                    <option value="17:00">5:00 PM</option>
+                     <option value="18:00">6:00 PM</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-submit">Agendar Cupo</button>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/l10n/es.min.js"></script>
+    <script>
+        // Inicialización de Flatpickr para el input con clase 'flatpickr'
+        flatpickr(".flatpickr", {
+            dateFormat: "d-m-Y", // Formato de fecha: día-mes-año
+            locale: "es", // Idioma español
+            minDate: "today" // No permite seleccionar fechas anteriores
+        });
+    </script>
+</body>
+</html>
