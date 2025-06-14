@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Parqueaderos</title>
+    
+ <style>
+body {
+     background-image: linear-gradient(to top,  #0c1db8fb  100%);
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      
+    }
+
+header {
+     
+      color: rgb(8, 8, 8);
+      padding: 15px;
+      text-align: center;
+         margin:auto;
+    }
+
+ nav {
+      display: flex;
+      justify-content: center;
+      background-image: linear-gradient(to right,#92fe9d81 30%, #00c8ff6d 100%);
+            
+    }
+
+    ul, ol {
+				list-style:none;
+			}
+
+    nav > li {
+				float:left;
+			}
+
+    nav li a {
+      background-color: #6ed898a0;
+				color:#020202;
+				text-decoration:none;
+				padding:8px 10px;
+				display:block;
+			}
+
+    
+nav li ul {
+				
+			display:none;
+			position:absolute;
+            				
+	 }
+
+nav li:hover > ul {
+				display:block;
+                
+                  
+                
+			}
+			
+			nav li ul li {
+				position:relative;
+               
+			}
+			
+			nav li ul li ul {
+				right:-140px;
+				top:0px;
+                
+			}
+
+  
+       nav a:hover {
+      background-color: #14cf75c4;
+      position: relative;     
+     
+      
+    }
+    
+    
+    .section.active {
+      display: block; 
+    }
+
+
+    .background-image {
+    position: fixed; /* Fija la imagen de fondo con respecto a la ventana de visualización */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('ImaVision.jpg'); /* Reemplaza 'tu-imagen.jpg' con la ruta de tu imagen */
+    background-size: cover; /* Asegura que la imagen cubra todo el elemento */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    opacity: 0.5; /* Controla la traslucidez (0.0 es completamente transparente, 1.0 es completamente opaco) */
+    z-index: -1; /* Envía la imagen de fondo detrás del contenido */
+}
+
+.content {
+    position: relative; /* Asegura que el contenido esté por encima de la imagen de fondo */
+    z-index: 1; /* Coloca el contenido por encima de la imagen de fondo */
+    color: #0a0a0a; /* Color de texto para que sea visible sobre el fondo */
+    text-align: right;
+    padding: 6%;
+    /* Puedes ajustar el padding y otros estilos para tu contenido */
+}
+
+ </style>
+</head>
+
+</body>
+    <header>
+        <h1>Parqueo Su Solución</h1>
+    </header>
+
+    <nav>
+        <ul><li><a href="#" onclick="showSection('Inicio')">Inicio</a></li></ul>
+            <ul><li><a href="#" onclick="showSection('Servicios')">Servicios</a>
+                <ul>
+                    <li><a href="AgendarCupo.html" onclick="showSection('Agendar Cupo')">Agendar Cupo</a></li>
+                    <li><a href="#">Reasignar Cupo</a></li>
+                    <li><a href="CancelarCupo.html" onclick="showSection('Cancelar Cupo')">Cancelar Cupo</a></li>
+                    <li><a href="#">Recomendaciones</a></li>
+                    <li><a href="#">Sugerencias</a></li>
+                </ul>
+            </li>
+          </ul>
+
+            <ul><li><a href="#" onclick="showSection('Nosotros')">Nosotros</a>
+                <ul>
+                    <li><a href="QuienesSomos.html" onclick="showSection('Quienes Somos')">Quiénes Somos</a></li>
+                    <li><a href="#" onclick="showSection('Misión')">Misión</a></li>
+                    <li><a href="#" onclick="showSection('Vision')">Visión</a></li>
+                </ul>
+            </li>
+          </ul>
+
+            <ul><li><a href="#" onclick="showSection('Trabaja Con Nosotros')">Trabaja Con Nosotros</a>
+                <ul>
+                    <li><a href="#">Experiencias</a></li>
+                    <li><a href="#">Vacantes Disponibles</a></li>
+                </ul>
+            </li>
+            </ul>
+
+            <ul><li><a href="#" onclick="showSection('Contactanos')">Contáctanos</a>
+                <ul>
+                    <li><a href="#">Nuestras Sedes</a></li>
+                </ul>
+            </li>
+
+        </ul>
+            
+        </ul>
+    </nav>
+<body>
+
+
+    <div class="background-image"></div>
+     
+    <div class="content">   
+            <div id="Misión" class="section">
+            <h1>Misión</h1>
+            <br> 
+                           <p>En "Parqueo su Solución"</p>           
+            <p>Proporcionar una experiencia de parqueo excepcional</p>
+            <p>donde la comodidad, seguridad y atención personalizada sean nuestra prioridad</p>
+            <p>superando las expectativas de nuestros clientes.</p>
+            <p>Para el año 2030 Transformar el concepto de parqueadero</p>
+            <p>convirtiéndonos en un espacio modelo de sostenibilidad urbana</p>
+            <p>integrando prácticas ecológicas y contribuyendo a un medio ambiente más limpio.</p>
+            
+        </div>
+  
+      
+    </div>
+     
+    <script>
+        function showSection(id) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.classList.remove('active'));
+
+            const target = document.getElementById(id);
+            if (target) {
+                target.classList.add('active');
+            }
+        }
+    </script>
+      
+    </header>
+     
+    </body>
+    
+</html>

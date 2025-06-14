@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.css">
+    <link rel="stylesheet" href="style.css">
     <style>
         /* Variables CSS para facilitar la personalización de colores y estilos */
         :root {
@@ -20,18 +21,7 @@
             --input-border: #ced4da; /* Color del borde de los inputs */
             --input-focus-border: var(--primary-color); /* Color del borde de los inputs al hacer focus */
         }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-image: linear-gradient(to top,  #0c1db8fb  100%);
-            color: var(--dark-text);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh; /* Asegura que ocupe al menos toda la altura de la ventana */
-        }
+        
 
         .booking-container {
             background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
@@ -130,10 +120,133 @@
                 margin: 20px; /* Margen en los laterales para pantallas pequeñas */
             }
         }
+
+
+        nav {
+      display: flex;
+      justify-content: center;
+      background-image: linear-gradient(to right,#92fe9d81 30%, #00c8ff6d 100%);
+            
+    }
+
+    ul, ol {
+				list-style:none;
+			}
+
+    nav > li {
+				float:left;
+			}
+
+    nav li a {
+      background-color: #6ed898a0;
+				color:#020202;
+				text-decoration:none;
+				padding:8px 10px;
+				display:block;
+			}
+
+    
+nav li ul {
+				
+			display:none;
+			position:absolute;
+            				
+	 }
+
+nav li:hover > ul {
+				display:block;
+                
+                  
+                
+			}
+			
+			nav li ul li {
+				position:relative;
+               
+			}
+			
+			nav li ul li ul {
+				right:-140px;
+				top:0px;
+                
+			}
+
+  
+       nav a:hover {
+      background-color: #14cf75c4;
+      position: relative;     
+     
+    }
+
+    .content {
+      padding: 50px;
+    }
+
+    .section {
+      display: none;
+    }
+
+    .section.active {
+      display: block; 
+    }
+
     </style>
-</head>
+   </head>
+
+<header>
+        <h1>Parqueo Su Solución</h1>
+       <br><br>
+
+    <nav>
+                 
+   <ul><li><a href="IniciarSesion.html" onclick="showSection('Inicio')">Inicio</a></li></ul> 
+    <ul><li><a href="#" onclick="showSection('Servicios')">Servicios</a>
+           <ul>
+				<li><a href="AgendarCupo.html" onclick="showSection('Agendar Cupo')">Agendar Cupo</a></li>
+				<li><a href="">Reasignar Cupo</a></li>
+                <li><a href="CancelarCupo.html" onclick="showSection('Cancelar Cupo')">Cancelar Cupo</a></li>
+				<li><a href="">Recomendaciones</a></li>
+                <li><a href="">Sugerencias</a></li>
+           </ul>		      
+    </li>
+  </ul>
+       <ul><li><a href="#" onclick="showSection('Nosotros')">Nosotros</a>
+         <ul>
+						<li><a href="QuienesSomos.html" onclick="showSection('Quienes Somos')">Quienes Somos</a></li>
+						<li><a href="" onclick="showSection('Mision')">Misión</a></li>
+						<li><a href="" onclick="showSection('Vision')">Visión</a></li>
+						
+	     </ul>
+    </li>
+</ul>
+     
+<ul><li><a href="#" onclick="showSection('Trabaja Con Nosotros')">Trabaja Con Nosotros</a>
+         <ul>
+						<li><a href="">Experiencias</a></li>
+						<li><a href="">Vacantes Disponibles</a></li>
+						
+	        </ul>
+       </li>
+    </ul>
+
+    <ul><li><a href="#" onclick="showSection('Contactanos')">Contactanos</a>
+          <ul>
+				<li><a href="">Nuestras Sedes</a></li>
+          </ul>
+        </li>
+    </ul> 
+
+  </ul>   
+  </ul> 
+    
+</nav>
+
+   <br><br><br>
+   <p>Bienvenido a nuestra sección de agendamiento, acontinuación encontraras el formulario para radicar tu solicitud, Recuerda que es necesario diligenciarlo en su totalidad.</p>
+    
+   <br><br><br>
 <body>
-    <div class="booking-container">
+    <center><div class="booking-container">
         <h2>Agendar Cupo</h2>
         <form action="#" method="POST">
             <div class="form-group">
@@ -198,7 +311,7 @@
 
             <button type="submit" class="btn-submit">Agendar Cupo</button>
         </form>
-    </div>
+    </div></center>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/l10n/es.min.js"></script>
@@ -211,4 +324,5 @@
         });
     </script>
 </body>
+ </header>
 </html>
